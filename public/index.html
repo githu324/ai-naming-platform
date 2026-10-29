@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智名 · AI 起名平台</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <h1>智名 · AI 起名平台</h1>
+      <p>填写起名需求，AI 生成 3 组名字，并附带完整寓意与逐字解析</p>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <!-- 需求表单 -->
+    <section class="panel form-panel">
+      <h2>起名需求</h2>
+      <form id="naming-form" novalidate>
+        <div class="field">
+          <label for="category">起名类型</label>
+          <select id="category" name="category">
+            <option value="baby" selected>宝宝起名</option>
+            <option value="brand">店铺 / 品牌起名</option>
+            <option value="nickname">网名 / 昵称</option>
+            <option value="pet">宠物名字</option>
+            <option value="product">产品 / 项目名</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="gender">性别</label>
+            <select id="gender" name="gender">
+              <option value="" selected>不限</option>
+              <option value="male">男</option>
+              <option value="female">女</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nameLength">字数偏好</label>
+            <select id="nameLength" name="nameLength">
+              <option value="" selected>不限</option>
+              <option value="3">3 个字</option>
+              <option value="2">2 个字</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="surname">姓氏（宝宝名建议填写）</label>
+          <input id="surname" name="surname" placeholder="如：李" maxlength="20" />
+        </div>
+
+        <div class="field">
+          <label for="stylePreference">风格偏好</label>
+          <input id="stylePreference" name="stylePreference"
+                 placeholder="如：文雅诗意 / 大气国风 / 现代简约 / 开朗阳光" maxlength="200" />
+        </div>
+
+        <div class="field">
+          <label for="requirements">补充要求</label>
+          <textarea id="requirements" name="requirements" rows="4"
+                    placeholder="如：出自《诗经》、避免生僻字、希望寓意平安喜乐……" maxlength="500"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submit-btn">生成 3 组名字</button>
+        <p class="form-tip" id="form-tip" role="alert"></p>
+      </form>
+    </section>
+
+    <!-- 结果区 -->
+    <section class="panel result-panel">
+      <h2>AI 名字候选</h2>
+      <div id="result-empty" class="empty-state">
+        填写左侧需求并提交，这里将展示 3 组名字及寓意解释。
+      </div>
+      <div id="result-loading" class="loading hidden">AI 正在斟酌用字与寓意，请稍候…</div>
+      <div id="result-list" class="result-list"></div>
+    </section>
+  </main>
+
+  <!-- 历史记录 -->
+  <section class="wrap panel history-panel">
+    <div class="history-head">
+      <h2>历史起名记录</h2>
+      <button type="button" id="refresh-history" class="btn-ghost">刷新</button>
+    </div>
+    <div id="history-list" class="history-list">
+      <p class="muted">加载中…</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">火山方舟 doubao-seed 模型驱动 · Supabase 持久化 · Vercel 部署</div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
