@@ -1,0 +1,20 @@
+{
+  "name": "ai-naming-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI 起名平台：调用火山方舟 Responses API 生成 3 组名字及寓意，Supabase 存储历史记录，Vercel 部署",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
